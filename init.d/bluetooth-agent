@@ -19,6 +19,9 @@ case "$1" in
 	sleep 1
         sudo hciconfig hci0 piscan
         start-stop-daemon -S -x /usr/local/bin/simple-agent.autotrust &
+    bluetoothctl << EOT
+discoverable off
+EOT
         echo "bluetooth-agent started"
         ;;
     stop)
